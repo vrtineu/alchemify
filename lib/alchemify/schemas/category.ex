@@ -1,0 +1,23 @@
+defmodule Alchemify.Schemas.Category do
+  use Ecto.Schema
+
+  import Ecto.Changeset
+
+  alias Alchemify.Schemas.Album
+
+  @primary_key {:id, :binary_id, autogenerate: true}
+
+  @required_fields ~w(name)a
+
+  schema "categories" do
+    field :name, :string
+
+    has_many :albums, Album
+  end
+
+  def changeset(category \\ %__MODULE__{}, attrs) do
+    category
+    |> cast(attrs, @required_fields)
+    |> validate_required(@required_fields)
+  end
+end

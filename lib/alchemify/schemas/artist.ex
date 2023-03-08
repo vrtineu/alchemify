@@ -14,6 +14,8 @@ defmodule Alchemify.Schemas.Artist do
     field :photo_url, :string
 
     has_many :albums, Album
+
+    timestamps()
   end
 
   def changeset(artist, attrs) do

@@ -14,6 +14,8 @@ defmodule Alchemify.Schemas.Category do
     field :image_url, :string
 
     has_many :albums, Album
+
+    timestamps()
   end
 
   def changeset(category \\ %__MODULE__{}, attrs) do

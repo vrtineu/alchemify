@@ -21,6 +21,8 @@ defmodule Alchemify.Schemas.Album do
     has_many :songs, Song
 
     many_to_many :recently_played, RecentlyPlayed, join_through: "recently_played_albums"
+
+    timestamps()
   end
 
   def changeset(album \\ %__MODULE__{}, attrs) do

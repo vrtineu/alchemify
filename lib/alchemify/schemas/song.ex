@@ -16,6 +16,8 @@ defmodule Alchemify.Schemas.Song do
 
     belongs_to :album, Album
     has_many :favorites, Favorite
+
+    timestamps()
   end
 
   def changeset(song \\ %__MODULE__{}, attrs) do

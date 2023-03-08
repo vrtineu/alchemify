@@ -7,10 +7,11 @@ defmodule Alchemify.Schemas.Category do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required_fields ~w(name)a
+  @required_fields ~w(name image_url)a
 
   schema "categories" do
     field :name, :string
+    field :image_url, :string
 
     has_many :albums, Album
   end

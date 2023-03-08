@@ -7,11 +7,12 @@ defmodule Alchemify.Schemas.Album do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required_fields ~w(title date category_id artist_id)a
+  @required_fields ~w(title date category_id artist_id cover_url)a
 
   schema "albums" do
     field :title, :string
     field :date, :date
+    field :cover_url, :string
 
     belongs_to :artist, Artist
     belongs_to :category, Category

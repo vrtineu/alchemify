@@ -7,10 +7,11 @@ defmodule Alchemify.Schemas.Song do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required_fields ~w(title)a
+  @required_fields ~w(title file_url)a
 
   schema "songs" do
     field :title, :string
+    field :file_url, :string
     field :played_times, :integer, default: 0
 
     belongs_to :album, Album

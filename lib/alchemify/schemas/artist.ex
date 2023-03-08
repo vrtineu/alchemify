@@ -7,10 +7,11 @@ defmodule Alchemify.Schemas.Artist do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required_fields ~w(name)a
+  @required_fields ~w(name photo_url)a
 
   schema "artists" do
     field :name, :string
+    field :photo_url, :string
 
     has_many :albums, Album
   end

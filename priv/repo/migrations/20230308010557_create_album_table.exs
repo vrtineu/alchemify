@@ -4,7 +4,7 @@ defmodule Alchemify.Repo.Migrations.CreateAlbumTable do
   def change do
     create table(:albums) do
       add :title, :string
-      add :date, :date
+      add :date, :naive_datetime
 
       timestamps()
     end

@@ -11,6 +11,10 @@ config :alchemify,
   ecto_repos: [Alchemify.Repo],
   generators: [binary_id: true]
 
+config :alchemify, Alchemify.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :alchemify, AlchemifyWeb.Endpoint,
   url: [host: "localhost"],

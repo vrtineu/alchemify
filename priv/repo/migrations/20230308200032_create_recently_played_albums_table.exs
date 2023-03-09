@@ -2,7 +2,7 @@ defmodule Alchemify.Repo.Migrations.CreateRecentlyPlayedAlbumsTable do
   use Ecto.Migration
 
   def change do
-    create table(:recently_played_albums) do
+    create table(:recently_played_albums, primary_key: false) do
       add :recently_played_id, references(:recently_played, type: :binary_id)
       add :album_id, references(:albums, type: :binary_id)
     end

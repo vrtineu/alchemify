@@ -3,9 +3,10 @@ defmodule Alchemify.Schemas.Artist do
 
   import Ecto.Changeset
 
-  alias Alchemify.Schemas.Album
+  alias Alchemify.Schemas.{Album, Favorite}
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   @required_fields ~w(name photo_url)a
 
@@ -14,6 +15,8 @@ defmodule Alchemify.Schemas.Artist do
     field :photo_url, :string
 
     has_many :albums, Album
+
+    many_to_many :favorites, Favorite, join_through: "songs_albums_artists_favorites"
 
     timestamps()
   end

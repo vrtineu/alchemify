@@ -6,6 +6,7 @@ defmodule Alchemify.Schemas.Song do
   alias Alchemify.Schemas.{Album, Favorite}
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   @required_fields ~w(title file_url)a
 
@@ -15,7 +16,7 @@ defmodule Alchemify.Schemas.Song do
     field :played_times, :integer, default: 0
 
     belongs_to :album, Album
-    has_many :favorites, Favorite
+    many_to_many :favorites, Favorite, join_through: "songs_albums_artists_favorites"
 
     timestamps()
   end

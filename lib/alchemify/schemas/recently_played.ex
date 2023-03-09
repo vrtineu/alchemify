@@ -4,6 +4,7 @@ defmodule Alchemify.Schemas.RecentlyPlayed do
   alias Alchemify.Schemas.{Album, User}
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   schema "recently_played" do
     belongs_to :user, User

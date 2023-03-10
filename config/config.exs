@@ -15,6 +15,14 @@ config :alchemify, Alchemify.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
+config :alchemify, AlchemifyWeb.Auth.Guardian,
+  issuer: "alchemify",
+  secret_key: "81p8iUxu82d87nCpiic0GufWeTDBB+270l/JBbtbcTZzuh29fLlni4kqKgX4pzfR"
+
+config :alchemify, AlchemifyWeb.Auth,
+  module: AlchemifyWeb.Auth.Guardian,
+  error_handler: AlchemifyWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :alchemify, AlchemifyWeb.Endpoint,
   url: [host: "localhost"],

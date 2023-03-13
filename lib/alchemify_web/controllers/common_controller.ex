@@ -1,9 +1,9 @@
-defmodule AlchemifyWeb.DashboardController do
+defmodule AlchemifyWeb.CommonController do
   use AlchemifyWeb, :controller
 
   action_fallback AlchemifyWeb.FallbackController
 
-  def index(conn, _attrs) do
+  def dashboard(conn, _attrs) do
     user = conn.private[:guardian_default_resource]
 
     # TODO: The dashboard should return a struct with the complete data
@@ -12,6 +12,14 @@ defmodule AlchemifyWeb.DashboardController do
       conn
       |> put_status(:ok)
       |> render("dashboard.json", dashboard: dashboard)
+    end
+  end
+
+  def search(conn, attrs) do
+    with {:ok, results} <- Alchemify.search(attrs) do
+      conn
+      |> put_status(:ok)
+      |> render("search.json", results: results)
     end
   end
 end

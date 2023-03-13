@@ -1,4 +1,4 @@
-defmodule AlchemifyWeb.CategoriesView do
+defmodule AlchemifyWeb.CategoryView do
   use AlchemifyWeb, :view
 
   def render("categories.json", %{categories: categories}) do

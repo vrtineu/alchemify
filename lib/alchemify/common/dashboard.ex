@@ -1,4 +1,4 @@
-defmodule Alchemify.Dashboard do
+defmodule Alchemify.Common.Dashboard do
   import Ecto.Query
 
   alias Alchemify.Repo

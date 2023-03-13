@@ -18,7 +18,8 @@ defmodule AlchemifyWeb.Router do
   scope "/api", AlchemifyWeb do
     pipe_through [:api, :auth]
 
-    get "/dashboard", DashboardController, :index
+    get "/dashboard", CommonController, :dashboard
+    get "/search", CommonController, :search
     get "/categories", CategoriesController, :index
   end
 end

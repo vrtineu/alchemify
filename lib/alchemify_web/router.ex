@@ -21,5 +21,6 @@ defmodule AlchemifyWeb.Router do
     get "/dashboard", CommonController, :dashboard
     get "/search", CommonController, :search
     get "/categories", CategoriesController, :index
+    get "/categories/:id/related", CategoriesController, :related
   end
 end

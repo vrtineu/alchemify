@@ -13,4 +13,5 @@ defmodule Alchemify do
 
   # categories
   defdelegate categories, to: Alchemify.Categories.Get, as: :all
+  defdelegate related_categories(category_id), to: Alchemify.Categories.Related, as: :fetch
 end

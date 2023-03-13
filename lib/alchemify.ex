@@ -7,5 +7,9 @@ defmodule Alchemify do
   if it comes from the database, an external API or others.
   """
 
+  # dashboard
   defdelegate dashboard(id), to: Alchemify.Dashboard, as: :index
+
+  # categories
+  defdelegate categories, to: Alchemify.Categories.Get, as: :all
 end

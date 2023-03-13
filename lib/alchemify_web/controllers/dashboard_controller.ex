@@ -11,7 +11,7 @@ defmodule AlchemifyWeb.DashboardController do
     with dashboard <- Alchemify.dashboard(user.id) do
       conn
       |> put_status(:ok)
-      |> render("index.json", dashboard: dashboard)
+      |> render("dashboard.json", dashboard: dashboard)
     end
   end
 end

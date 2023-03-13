@@ -4,6 +4,8 @@ defmodule Alchemify.Repo.Migrations.CreateRecentlyPlayedTable do
   def change do
     create table(:recently_played) do
       add :user_id, references(:users, type: :binary_id)
+
+      timestamps()
     end
   end
 end

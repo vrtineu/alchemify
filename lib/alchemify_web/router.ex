@@ -17,5 +17,7 @@ defmodule AlchemifyWeb.Router do
 
   scope "/api", AlchemifyWeb do
     pipe_through [:api, :auth]
+
+    get "/dashboard", DashboardController, :index
   end
 end

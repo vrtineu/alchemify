@@ -10,6 +10,10 @@ defmodule Alchemify.Schemas.Album do
 
   @required_fields ~w(title date category_id artist_id cover_url)a
 
+  @json_fields ~w(id title date cover_url)a
+
+  @derive {Jason.Encoder, only: @json_fields}
+
   schema "albums" do
     field :title, :string
     field :date, :date

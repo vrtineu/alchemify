@@ -10,6 +10,10 @@ defmodule Alchemify.Schemas.Artist do
 
   @required_fields ~w(name photo_url)a
 
+  @json_fields ~w(id name photo_url)a
+
+  @derive {Jason.Encoder, only: @json_fields}
+
   schema "artists" do
     field :name, :string
     field :photo_url, :string

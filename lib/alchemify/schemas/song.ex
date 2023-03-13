@@ -10,6 +10,10 @@ defmodule Alchemify.Schemas.Song do
 
   @required_fields ~w(title file_url)a
 
+  @json_fields ~w(id title file_url played_times)a
+
+  @derive {Jason.Encoder, only: @json_fields}
+
   schema "songs" do
     field :title, :string
     field :file_url, :string

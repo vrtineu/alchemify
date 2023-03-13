@@ -10,5 +10,7 @@ defmodule Alchemify.Schemas.RecentlyPlayed do
     belongs_to :user, User
 
     many_to_many :albums, Album, join_through: "recently_played_albums"
+
+    timestamps()
   end
 end

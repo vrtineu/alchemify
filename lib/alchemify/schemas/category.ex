@@ -9,6 +9,10 @@ defmodule Alchemify.Schemas.Category do
 
   @required_fields ~w(name image_url)a
 
+  @json_fields ~w(id name image_url)a
+
+  @derive {Jason.Encoder, only: @json_fields}
+
   schema "categories" do
     field :name, :string
     field :image_url, :string

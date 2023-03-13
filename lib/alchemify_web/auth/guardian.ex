@@ -1,6 +1,7 @@
 defmodule AlchemifyWeb.Auth.Guardian do
   use Guardian, otp_app: :alchemify
 
+  alias Alchemify.Error
   alias Alchemify.Schemas.User
   alias Alchemify.Users.Get
 
@@ -20,7 +21,8 @@ defmodule AlchemifyWeb.Auth.Guardian do
          {:ok, token, _claims} <- encode_and_sign(user) do
       {:ok, token}
     else
-      _ -> {:error, :unauthorized}
+      false -> {:error, Error.build(:unauthorized, "Invalid credentials")}
+      error -> error
     end
   end
 
